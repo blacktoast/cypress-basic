@@ -1,8 +1,8 @@
-/// <reference types="cypress" />
+import { BASE_URL } from "./base";
 
 context("Location", () => {
   beforeEach(() => {
-    cy.visit("http://132.226.18.9:5500");
+    cy.visit(BASE_URL);
   });
 
   it("테스트를 테스트", () => {
