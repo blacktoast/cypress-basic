@@ -17,4 +17,13 @@ context("Location", () => {
       cy.get(".count-display").should("have.value", count + 1);
     });
   });
+
+  it("감소버튼 테스트", () => {
+    cy.get(".count-display").then((input) => {
+      let count = Number(input.val());
+
+      cy.get(".minus-button").click();
+      cy.get(".count-display").should("have.value", count - 1);
+    });
+  });
 });
