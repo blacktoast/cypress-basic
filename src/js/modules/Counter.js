@@ -11,8 +11,43 @@ export default function Counter({ $app }) {
         </div>`;
   };
 
+  function getCount() {
+    return document.querySelector(".count-display").value;
+  }
+  function storeCount(data) {
+    document.querySelector(".count-display").value = data;
+    return;
+  }
+
+  const initEvent = () => {
+    document.querySelector(".plus-button").addEventListener("click", (e) => {
+      increase();
+    });
+    document.querySelector(".minus-button").addEventListener("click", () => {
+      decrease();
+    });
+  };
+
+  function increase() {
+    let v = parseInt(getCount());
+    if (v >= 12) {
+      return;
+    }
+    v += 1;
+    storeCount(v);
+  }
+
+  function decrease() {
+    let v = parseInt(getCount());
+    if (v <= 8) {
+      return;
+    }
+    v -= 1;
+    storeCount(v);
+  }
   const init = () => {
     render();
+    initEvent();
   };
 
   init();

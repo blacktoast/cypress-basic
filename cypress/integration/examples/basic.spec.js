@@ -5,8 +5,7 @@ context("Location", () => {
     cy.visit(BASE_URL);
   });
 
-  it("테스트를 테스트", () => {
-    // https://on.cypress.io/hash
-    expect(true).to.equal(true);
+  it("값 초기화 테스트", () => {
+    cy.get(".count-display").should("have.value", "10");
   });
 });
